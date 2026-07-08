@@ -73,14 +73,21 @@
   .cap .t{font-weight:700;font-size:1.02rem}
   .cap .m{color:var(--plum);font-weight:600;font-size:.84rem;letter-spacing:.04em}
   .cap .n{color:var(--faint);font-size:.84rem;width:100%;font-weight:500}
-  .duo{display:grid;grid-template-columns:1fr 1fr;gap:14px;align-items:start}
-  .trio{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;align-items:start}
+  /* multi-image rows: --cols carries per-row fr ratios (image width/height ×1000)
+     so every image in a row renders at the same height */
+  .duo{display:grid;grid-template-columns:var(--cols,1fr 1fr);gap:14px;align-items:start;width:100%}
+  .trio{display:grid;grid-template-columns:var(--cols,repeat(3,1fr));gap:14px;align-items:start;width:100%}
   .duo img,.trio img{max-height:none;width:100%}
-  .row2{display:grid;grid-template-columns:1fr 1fr;gap:22px;align-items:start}
+  .piece.big img{width:72%;max-height:none}
+  .row2{display:grid;grid-template-columns:var(--cols,1fr 1fr);gap:22px;align-items:start}
   .row2 figure{margin:0;display:grid;gap:12px;justify-items:center}
   .row2 img{width:100%;border-radius:4px;cursor:zoom-in;box-shadow:0 24px 70px -28px rgba(0,0,0,.85);transition:transform .2s}
   .row2 img:hover{transform:scale(1.005)}
-  @media(max-width:720px){.duo,.trio,.row2{grid-template-columns:1fr}}
+  @media(max-width:720px){
+    .duo,.trio,.row2{grid-template-columns:1fr}
+    .piece{margin-left:0;margin-right:0} /* drop the UA figure side margins so every image shares one content width */
+    .piece img,.piece.big img{width:100%;max-height:none}
+  }
 
   /* projects */
   .projects{display:grid;grid-template-columns:repeat(6,1fr);gap:18px}
@@ -183,7 +190,7 @@
     <div class="work">
 
       <figure class="piece reveal">
-        <div class="duo">
+        <div class="duo" style="--cols:434fr 750fr">
           <img loading="lazy" src="images/featured-02a-grandmother-mural.jpg" alt="Grandmother mural in lavender — photo-real portrait inside spray abstraction" data-lb="1">
           <img loading="lazy" src="images/featured-02b-grandmother-mural.jpg" alt="Grandmother mural in sepia — photo-real portrait inside spray abstraction" data-lb="2">
         </div>
@@ -196,20 +203,20 @@
           <figcaption class="cap"><span class="t">Child</span><span class="m">CHARCOAL &amp; PASTEL ON ORANGE GROUND</span></figcaption>
         </figure>
         <figure>
-          <img loading="lazy" src="images/featured-06-serpent-and-hands.jpg" alt="Serpent and Hands — pastel, serpent coiled through outstretched hands" data-lb="4">
-          <figcaption class="cap"><span class="t">Serpent and Hands</span><span class="m">PASTEL</span></figcaption>
+          <img loading="lazy" src="images/featured-08-two-men-portrait.jpg" alt="Two Men — acrylic double portrait on black ground" data-lb="4">
+          <figcaption class="cap"><span class="t">Two Men</span><span class="m">ACRYLIC</span></figcaption>
         </figure>
       </div>
 
-      <figure class="piece reveal">
+      <figure class="piece big reveal">
         <img loading="lazy" src="images/archive-steel-cutout.jpg" alt="Untitled steel installation — plasma-cut tree, city skyline and falling figures" data-lb="5">
         <figcaption class="cap"><span class="t">Untitled (Steel Installation)</span><span class="m">PLASMA-CUT PLATE STEEL, WELDED TO ANGLE-IRON FRAME</span><span class="n">Wall installation — a tree dissolving into a skyline, roots becoming figures.</span></figcaption>
       </figure>
 
-      <div class="row2 reveal">
+      <div class="row2 reveal" style="--cols:634fr 682fr">
         <figure>
-          <img loading="lazy" src="images/featured-08-two-men-portrait.jpg" alt="Two Men — acrylic double portrait on black ground" data-lb="6">
-          <figcaption class="cap"><span class="t">Two Men</span><span class="m">ACRYLIC</span></figcaption>
+          <img loading="lazy" src="images/featured-03-face-sculpture.jpg" alt="Face — plaster and mesh sculpture" data-lb="6">
+          <figcaption class="cap"><span class="t">Face</span><span class="m">PLASTER AND MESH</span></figcaption>
         </figure>
         <figure>
           <img loading="lazy" src="images/featured-09-florence-market.jpg" alt="Florence Market — acrylic cityscape with market vendor" data-lb="7">
@@ -217,10 +224,10 @@
         </figure>
       </div>
 
-      <div class="row2 reveal">
+      <div class="row2 reveal" style="--cols:781fr 1528fr">
         <figure>
-          <img loading="lazy" src="images/featured-03-face-sculpture.jpg" alt="Face — plaster and mesh sculpture" data-lb="8">
-          <figcaption class="cap"><span class="t">Face</span><span class="m">PLASTER AND MESH</span></figcaption>
+          <img loading="lazy" src="images/featured-06-serpent-and-hands.jpg" alt="Serpent and Hands — pastel, serpent coiled through outstretched hands" data-lb="8">
+          <figcaption class="cap"><span class="t">Serpent and Hands</span><span class="m">PASTEL</span></figcaption>
         </figure>
         <figure>
           <img loading="lazy" src="images/featured-05-resting-woman.jpg" alt="Resting — acrylic portrait of a girl resting on her arm" data-lb="9">
@@ -229,7 +236,7 @@
       </div>
 
       <figure class="piece reveal">
-        <div class="trio">
+        <div class="trio" style="--cols:1037fr 589fr 873fr">
           <img loading="lazy" src="images/featured-07a-capoeira.jpg" alt="Capoeira study — figure falling, colored pencil" data-lb="10">
           <img loading="lazy" src="images/featured-07b-capoeira.jpg" alt="Capoeira study — figure crouched mid-turn, colored pencil" data-lb="11">
           <img loading="lazy" src="images/featured-07c-capoeira.jpg" alt="Capoeira study — figure extended, colored pencil" data-lb="12">
@@ -253,31 +260,31 @@
     <div class="projects">
       <div class="proj feature reveal">
         <h3>ThreadKeep</h3>
-        <p>A native macOS app for creating searchable, local-first archives of iMessage conversations. Fully functional, with public release in preparation.</p>
+        <p>A native macOS app that turns iMessage history into a searchable, local-first archive — built directly on Apple's undocumented message database.</p>
         <div class="tags"><span>macOS</span><span>SwiftUI</span><span>Local-first</span><span>Archive</span></div>
         <a class="live" href="https://threadkeep.xyz/" target="_blank" rel="noopener">threadkeep.xyz</a>
       </div>
       <div class="proj feature reveal">
         <h3>atrium.earth</h3>
-        <p>A digital sculpture museum in the browser — navigable rooms, heavy 3D models streamed in so the page never chokes.</p>
+        <p>A museum for sculpture in the browser — rooms you move through, with large 3D scans streamed progressively so the space stays fast.</p>
         <div class="tags"><span>THREE.JS</span><span>WEBGL</span><span>3D</span></div>
         <a class="live" href="https://atrium.earth" target="_blank" rel="noopener">atrium.earth</a>
       </div>
       <div class="proj reveal">
         <h3>worldbook.earth</h3>
-        <p>An interactive map of the whole world in the browser — 239 countries shaded live across dozens of data layers, with migration and refugee flows drawn as moving currents.</p>
+        <p>An interactive atlas: 239 countries shaded live across dozens of data layers, with migration and refugee flows drawn as moving currents.</p>
         <div class="tags"><span>WEBGL</span><span>MAPPING</span><span>DATA VIZ</span></div>
         <a class="live" href="https://worldbook.earth" target="_blank" rel="noopener">worldbook.earth</a>
       </div>
       <div class="proj reveal">
         <h3>WPCNA</h3>
-        <p>Civic site for a White Plains neighborhood council. Residents submit notices; an AI-assisted pipeline sorts them for review — a person always makes the call. Includes Ask White Plains, a Q&amp;A assistant grounded in the site's own content.</p>
+        <p>Civic infrastructure for a White Plains neighborhood council. Residents submit notices; an AI pipeline triages them for human review — a person always makes the call. Ask White Plains answers questions from the site's own content.</p>
         <div class="tags"><span>CIVIC</span><span>AI-ASSISTED</span><span>STATIC SITE</span></div>
         <a class="live" href="https://wp-cna.org" target="_blank" rel="noopener">View live</a>
       </div>
       <div class="proj reveal">
         <h3>Ad Arma</h3>
-        <p>A turn-based strategy wargame on a hex grid, playable in the browser. I designed the rules and built the whole thing.</p>
+        <p>A turn-based strategy wargame on a hex grid. Original ruleset, custom engine — I designed the rules and built every line.</p>
         <div class="tags"><span>GAME DESIGN</span><span>JAVASCRIPT</span><span>WEB</span></div>
         <a class="live" href="https://ad-arma.com" target="_blank" rel="noopener">ad-arma.com</a>
       </div>
