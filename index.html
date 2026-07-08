@@ -11,14 +11,17 @@
 <meta property="og:url" content="https://kushman.work/">
 <meta property="og:image" content="https://kushman.work/images/featured-01-neil-young-scratchboard.jpg">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23e0623f'/%3E%3Ctext x='32' y='44' font-family='Arial,sans-serif' font-size='36' font-weight='700' text-anchor='middle' fill='%23121110'%3EK%3C/text%3E%3C/svg%3E">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="theme-color" content="#121110">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
   :root{
     --bg:#121110; --bg2:#181614; --ink:#f2ede4; --dim:#b5ab9c; --faint:#8a8174;
-    --rust:#e0623f; --plum:#a06fcf; --line:#2a2622;
+    --rust:#e0623f; --plum:#a06fcf; --line:#2a2622; /* --rust = UI accent (AA-contrast tint of the brand oxide); the logo square itself is fixed #D14A2B — see .km-dot */
     --maxw:1180px;
     --font:'Hanken Grotesk',-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;
   }
@@ -36,11 +39,19 @@
 
   nav{position:sticky;top:0;z-index:100;background:rgba(18,17,16,.82);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
   nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
-  .brand{font-weight:800;font-size:.95rem;letter-spacing:.14em;text-transform:uppercase}
+  /* brand — kushman▪work wordmark + k▪ mark (geometry per logo handoff; em-based, scales with font-size) */
+  .km-wordmark,.km-mark{display:inline-flex;align-items:flex-end;font-family:'Helvetica Neue',Arial,sans-serif;font-weight:700;line-height:1}
+  .km-wordmark{letter-spacing:-.035em}
+  .km-mark{letter-spacing:-.03em}
+  .km-name,.km-k{color:#ECE7DD}
+  .km-work{color:#6A645A}
+  .km-dot{width:.24em;height:.24em;background:#D14A2B;flex:none;margin:0 .08em .13em}
+  .km-mark .km-dot{margin:0 0 .02em .08em}
+  .brand{font-size:26px}
   .navlinks{display:flex;gap:26px;font-weight:600;font-size:.92rem}
   .navlinks a{color:var(--dim);transition:color .18s}
   .navlinks a:hover,.navlinks a:focus-visible{color:var(--plum)}
-  @media(max-width:640px){.navlinks{gap:16px;font-size:.85rem}.brand{font-size:.8rem;letter-spacing:.1em}}
+  @media(max-width:640px){.navlinks{gap:16px;font-size:.85rem}.brand{font-size:22px}.brand .km-work{display:none}} /* handoff responsive rule: drop `work`, never shrink the wordmark past legibility */
 
   /* hero */
   header{padding:78px 0 64px}
@@ -133,6 +144,8 @@
   footer{padding:30px 0 50px;color:var(--faint);font-size:.82rem;text-align:center;font-weight:500}
   footer a{color:var(--faint);border-bottom:1px solid transparent}
   footer a:hover{color:var(--plum);border-color:var(--plum)}
+  footer a.km-mark{font-size:20px;margin-bottom:12px}
+  footer a.km-mark:hover{border-color:transparent}
 
   /* lightbox */
   .lb{position:fixed;inset:0;z-index:300;background:rgba(10,9,8,.96);display:none;align-items:center;justify-content:center;flex-direction:column;padding:30px}
@@ -155,7 +168,7 @@
 
 <nav>
   <div class="wrap">
-    <a class="brand" href="#top">Michael Conor Kushman</a>
+    <a class="brand km-wordmark" href="#top" aria-label="kushman.work — home"><span class="km-name">kushman</span><span class="km-dot"></span><span class="km-work">work</span></a>
     <div class="navlinks">
       <a href="#work">Work</a>
       <a href="#projects">Projects</a>
@@ -353,7 +366,10 @@
   </div>
 </section>
 
-<footer><div class="wrap">© <span id="yr"></span> Michael Conor Kushman · <a href="#top">kushman.work</a></div></footer>
+<footer><div class="wrap">
+  <a class="km-mark" href="#top" aria-label="kushman.work — back to top"><span class="km-k">k</span><span class="km-dot"></span></a>
+  <div>© <span id="yr"></span> Michael Conor Kushman</div>
+</div></footer>
 
 <div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Artwork viewer">
   <button class="x" id="lbx" aria-label="Close">×</button>
