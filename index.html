@@ -102,7 +102,7 @@
 
   /* projects */
   .projects{display:grid;grid-template-columns:repeat(6,1fr);gap:18px}
-  .proj{grid-column:span 2;border:1px solid var(--line);background:var(--bg2);border-radius:10px;padding:26px;display:flex;flex-direction:column;gap:10px;transition:border-color .2s}
+  .proj{grid-column:span 3;border:1px solid var(--line);background:var(--bg2);border-radius:10px;padding:26px;display:flex;flex-direction:column;gap:10px;transition:border-color .2s} /* 2×2 standard cards at featured width (spec future provision, active since card six) */
   .proj.feature{grid-column:span 3;border-color:#3a2c24;background:linear-gradient(180deg,rgba(224,98,63,.05),transparent 50%),var(--bg2)}
   .proj:hover{border-color:#3a342e}
   .proj h3{color:var(--rust);font-size:1.15rem;font-weight:700}
@@ -300,6 +300,12 @@
         <p>A turn-based strategy wargame on a hex grid. Original ruleset, custom engine — I designed the rules and built every line.</p>
         <div class="tags"><span>GAME DESIGN</span><span>JAVASCRIPT</span><span>WEB</span></div>
         <a class="live" href="https://ad-arma.com" target="_blank" rel="noopener">ad-arma.com</a>
+      </div>
+      <div class="proj reveal">
+        <h3>treefort.lol</h3>
+        <p>A private clubhouse network: forts you knock to enter, with a wall, a paint room, and a gif machine. No accounts, no feeds, no analytics — one Cloudflare Worker, zero dependencies. The management is a dog.</p>
+        <div class="tags"><span>CLOUDFLARE WORKERS</span><span>D1 + R2</span><span>ZERO DEPENDENCIES</span></div>
+        <a class="live" href="https://treefort.lol" target="_blank" rel="noopener">treefort.lol</a>
       </div>
       <div class="proj reveal" data-status="hidden" hidden>
         <h3>Signal Atlas</h3>
