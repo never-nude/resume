@@ -6,7 +6,7 @@
 <title>Michael Conor Kushman — Design Engineer &amp; Artist</title>
 <meta name="description" content="Michael Conor Kushman is a design engineer and artist building AI-native products, creative tools, and interactive systems from first idea through deployment.">
 <meta property="og:title" content="Michael Conor Kushman — Design Engineer &amp; Artist">
-<meta property="og:description" content="AI-native products, creative tools, and interactive systems—from first idea through deployment. Six shipped since February 2026.">
+<meta property="og:description" content="AI-native products, creative tools, and interactive systems—from first idea through deployment.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://kushman.work/">
 <meta property="og:image" content="https://kushman.work/images/featured-01-neil-young-scratchboard.jpg">
@@ -113,6 +113,11 @@
   .proj a.live{color:var(--ink);font-weight:600;font-size:.85rem;border-bottom:1px solid var(--rust);width:max-content;transition:color .18s}
   .proj a.live:hover{color:var(--rust)}
   .proj .shot{margin:-26px -26px 12px;width:calc(100% + 52px);max-width:none;aspect-ratio:16/10;object-fit:cover;object-position:top;border-radius:10px 10px 0 0;border-bottom:1px solid var(--line)}
+  .civic-shot{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;align-items:center;padding:30px 24px;background:linear-gradient(135deg,#1f2930,#22201d)}
+  .civic-shot span{display:grid;place-items:center;min-height:82px;padding:12px;border:1px solid #4a4742;border-radius:8px;color:var(--ink);font-size:.72rem;font-weight:700;letter-spacing:.06em;text-align:center}
+  .civic-shot span:nth-child(2){border-color:var(--plum);color:#d9baf6}
+  .civic-shot span:nth-child(3){border-color:var(--rust);color:#f0a08a}
+  @media(max-width:640px){.civic-shot{grid-template-columns:1fr 1fr}}
   .proj[data-status="hidden"]{display:none}
   @media(max-width:900px){.projects{grid-template-columns:1fr 1fr}.proj,.proj.feature{grid-column:span 1}}
   @media(max-width:640px){.projects{grid-template-columns:1fr}}
@@ -224,11 +229,12 @@
         <a class="live" href="https://worldbook.earth" target="_blank" rel="noopener">worldbook.earth</a>
       </div>
       <div class="proj reveal">
-        <a class="shotlink" href="https://wp-cna.org" target="_blank" rel="noopener"><img class="shot" loading="lazy" src="images/projects/wpcna.jpg" alt="WPCNA — civic platform for White Plains neighborhoods"></a>
-        <h3>WPCNA</h3>
-        <p>Civic infrastructure for a White Plains neighborhood council. Residents submit notices; an AI pipeline triages them for human review — a person always makes the call. Ask White Plains answers questions from the site's own content.</p>
+        <div class="shot civic-shot" role="img" aria-label="Submission, AI-assisted triage, human review, and publication workflow">
+          <span>SUBMISSION</span><span>AI-ASSISTED TRIAGE</span><span>HUMAN REVIEW</span><span>PUBLISH</span>
+        </div>
+        <h3>Civic Platform</h3>
+        <p>A civic information and review platform for a volunteer-run neighborhood organization. Residents submit notices; AI-assisted triage prepares them for human review, and people retain every publishing decision.</p>
         <div class="tags"><span>CIVIC</span><span>AI-ASSISTED</span><span>STATIC SITE</span></div>
-        <a class="live" href="https://wp-cna.org" target="_blank" rel="noopener">wp-cna.org</a>
       </div>
       <div class="proj reveal">
         <a class="shotlink" href="https://ad-arma.com" target="_blank" rel="noopener"><img class="shot" loading="lazy" src="images/projects/adarma.jpg" alt="Ad Arma — hex-grid strategy wargame in play"></a>
@@ -420,9 +426,9 @@
   <div class="wrap">
     <div class="sec-head"><span class="sec-num">03</span><h2>About</h2></div>
     <div class="about">
-      <p class="thesis">I'm a <b>design engineer</b> — designing and shipping full-stack products independently, AI-native from the first commit. For twenty years the materials were paint, plaster, charcoal, and welded steel; now it's mostly code. The questions are the same — form, composition, space.</p>
-      <p class="d">Earthquake relief in Haiti. Teaching in West Africa. Furniture fabrication in Ulster County. Painting and sculpture throughout.</p>
-      <p class="edu">Connecticut College — B.A., 2008</p>
+      <p class="thesis">I'm a <b>design engineer</b> — designing and shipping full-stack products independently, AI-native from the first commit. My practice spans software, interactive systems, painting, sculpture, and fabrication. The questions are the same — form, composition, space.</p>
+      <p class="d">Relief work, teaching, furniture fabrication, painting, and sculpture.</p>
+      <p class="edu">B.A., Connecticut College</p>
       <div class="tools">
         <h3>Tools I work in</h3>
         <p>Swift / SwiftUI · React · TypeScript · Python · Node</p>
@@ -445,7 +451,6 @@
     <h2>Let's make something.</h2>
     <div class="links">
       <a href="mailto:michael.kushman@gmail.com">michael.kushman@gmail.com</a>
-      <a href="https://github.com/never-nude" target="_blank" rel="noopener">GitHub</a>
     </div>
   </div>
 </section>
@@ -467,9 +472,9 @@
   document.getElementById('yr').textContent=new Date().getFullYear();
 
   var ARCHIVE=[
-    {f:"archive-motherboard-2017",t:"Motherboard",y:"2017",m:"Mixed media on circuit board"},
-    {f:"archive-discussion-2025",t:"Discussion",y:"2025",m:"Acrylic"},
-    {f:"archive-diogenes-2022",t:"Diogenes",y:"2022",m:"Acrylic"},
+    {f:"archive-motherboard",t:"Motherboard",m:"Mixed media on circuit board"},
+    {f:"archive-discussion",t:"Discussion",m:"Acrylic"},
+    {f:"archive-diogenes",t:"Diogenes",m:"Acrylic"},
     {f:"archive-kraft-collage",t:"Untitled (Collage)",m:"Torn canvas on kraft"},
     {f:"archive-tabula-rasa",t:"Tabula Rasa",m:"Mixed media"},
     {f:"archive-linear-abstract-black",t:"Untitled (Linear Abstract)",m:"Mixed media on black ground"},
